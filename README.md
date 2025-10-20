@@ -10,7 +10,7 @@
 
 ---
 
-## 🧩 Persona 1: Estructura y Formulario
+## 🧩 Persona 1: Estructura y Formulario                        (JESUS)
 
 ### 🔧 Funcionalidades
 - Crear la estructura HTML semántica de la app.
@@ -34,7 +34,7 @@
 
 ---
 
-## 🔍 Persona 2: Filtros, Búsqueda y Ordenación
+## 🔍 Persona 2: Filtros, Búsqueda y Ordenación                        (DANI)
 
 ### 🔧 Funcionalidades
 - Implementar la búsqueda en tiempo real por título.
@@ -58,7 +58,7 @@
 
 ---
 
-## 💾 Persona 3: CSS, Edición, Eliminación y LocalStorage
+## 💾 Persona 3: CSS, Edición, Eliminación y LocalStorage                        (EDU)
 
 ### 🔧 Funcionalidades
 - Crear estilos CSS modernos y responsive (móvil, tablet, escritorio).
