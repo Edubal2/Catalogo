@@ -89,7 +89,28 @@
    git checkout main
    git pull
    git checkout -b feature/formulario-visualizacion
-2. 
+
+2. 🧠 Desarrollo individual con commits frecuentes y mensajes claros
+
+- ✅ **Añadir validación al formulario de películas**  
+- ✅ **Implementar filtro por género y director**  
+- ✅ **Guardar catálogo en localStorage automáticamente**
+
+3. Crear **Pull Requests (PR)** cuando se termine una funcionalidad.  
+4. Otro compañero debe **revisar el PR antes de hacer merge**.  
+5. Marcar el **Issue correspondiente como cerrado** al fusionar.
+
+---
+
+## 📋 Project board (Kanban)
+
+En **GitHub → Projects**, se recomienda organizar las tareas en un tablero con las siguientes columnas:
+
+- 🕐 **Por hacer**  
+- 🚧 **En progreso**  
+- 👀 **En revisión**  
+- ✅ **Hecho**
+
    
 
    
