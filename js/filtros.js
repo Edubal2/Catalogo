@@ -1,18 +1,13 @@
 // filtros.js
-import { mostrarPeliculas } from './peliculas.js';
+import { mostrarPeliculas, peliculas } from './peliculas.js';
 
-// Array global de películas (importado o accesible desde peliculas.js)
-let peliculas = [];
 let peliculasFiltradas = [];
 
-// Inicializar filtros
-export function initFiltros(listaPeliculas) {
-  peliculas = listaPeliculas;
+export function initFiltros() {
   peliculasFiltradas = [...peliculas];
   mostrarPeliculas(peliculasFiltradas);
   actualizarContador();
 
-  // Listeners
   document.getElementById('buscarTitulo').addEventListener('input', aplicarFiltros);
   document.getElementById('filtroDirector').addEventListener('input', aplicarFiltros);
   document.getElementById('filtroGenero').addEventListener('change', aplicarFiltros);
@@ -20,7 +15,6 @@ export function initFiltros(listaPeliculas) {
   document.getElementById('btnLimpiarFiltros').addEventListener('click', limpiarFiltros);
 }
 
-// Función principal de filtrado
 function aplicarFiltros() {
   const titulo = document.getElementById('buscarTitulo').value.toLowerCase();
   const director = document.getElementById('filtroDirector').value.toLowerCase();
@@ -37,14 +31,12 @@ function aplicarFiltros() {
   actualizarContador();
 }
 
-// Mostrar mejor valoradas (orden descendente)
 function verMejorValoradas() {
   const ordenadas = [...peliculasFiltradas].sort((a, b) => b.valoracion - a.valoracion);
   mostrarPeliculas(ordenadas);
   actualizarContador(ordenadas.length);
 }
 
-// Limpiar filtros
 function limpiarFiltros() {
   document.getElementById('buscarTitulo').value = '';
   document.getElementById('filtroDirector').value = '';
@@ -54,8 +46,10 @@ function limpiarFiltros() {
   actualizarContador();
 }
 
-// Contador de películas visibles
 function actualizarContador(total = peliculasFiltradas.length) {
   document.getElementById('contadorPeliculas').textContent =
     `Mostrando ${total} película(s)`;
 }
+
+// Inicializamos los filtros al cargar la página
+initFiltros();
