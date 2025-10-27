@@ -6,15 +6,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="formulario.js"></script>
-    <script src="peliculas.js"></script>
-
+  
 <header>
     <h1>Mi Catalogo De Peliculas</h1>
 </header>
 
 <section id="formulario">
-<form>
+    <h2>Añadir nueva película</h2>
+
+    <form id="formPeliculas">
     <label for="titulo">Titulo:</label>
     <input type="text" id="titulo" name="titulo"><br><br>
     
@@ -29,19 +29,35 @@
 
     <label for="valoracion">Valoración</label>
     <input type="number" id="valoracion" name="valoracion" min="1" max="5"><br><br>
-    
-    <button type="button" onclick="agregarPelicula()">Agregar Película</button>
+
+    <button type="button" id="btnAgregar">Agregar Película</button>
     </form>
 </section>
 
-<div id="mensaje-validacion">
+<div id="mensaje-validacion"></div>
 
-</div>
+<section id="filtros">
+    <h2>Filtrar catálogo</h2>
+    <input type="text" id="buscarTitulo" placeholder="Buscar por título...">
+    <input type="text" id="filtroDirector" placeholder="Filtrar por director...">
+    <select id="filtroGenero">
+      <option value="">Todos los géneros</option>
+      <option value="Acción">Acción</option>
+      <option value="Comedia">Comedia</option>
+      <option value="Drama">Drama</option>
+      <option value="Ciencia ficción">Ciencia ficción</option>
+      <option value="Terror">Terror</option>
+    </select>
+    <button id="btnMejorValoradas">Ver mejor valoradas</button>
+    <button id="btnLimpiarFiltros">Limpiar filtros</button>
+    <p id="contadorPeliculas">Mostrando 0 película(s)</p>
+  </section>
+  
+<section id="catalogo"></section>
 
-<section id="catalogo">
-
-</section>
-
+<script type="module" src="formulario.js"></script>
+  <script type="module" src="peliculas.js"></script>
+  <script type="module" src="filtros.js"></script>
 
 </body>
 </html>    
