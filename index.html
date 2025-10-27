@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mi Catalogo De Peliculas</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script src="formulario.js"></script>
+    <script src="peliculas.js"></script>
+
+<header>
+    <h1>Mi Catalogo De Peliculas</h1>
+</header>
+
+<section id="formulario">
+<form>
+    <label for="titulo">Titulo:</label>
+    <input type="text" id="titulo" name="titulo"><br><br>
+    
+    <label for="director">Director:</label>
+    <input type="text" id="director" name="director"><br><br>
+    
+    <label for="anio">Año de Estreno:</label>
+    <input type="number" id="anio" name="anio"><br><br>
+    
+    <label for="genero">Género:</label>
+    <input type="text" id="genero" name="genero"><br><br>
+
+    <label for="valoracion">Valoración</label>
+    <input type="number" id="valoracion" name="valoracion" min="1" max="5"><br><br>
+    
+    <button type="button" onclick="agregarPelicula()">Agregar Película</button>
+    </form>
+</section>
+
+<div id="mensaje-validacion">
+
+</div>
+
+<section id="catalogo">
+
+</section>
+
 
 </body>
-</html>
+</html>    
+
+    
