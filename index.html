@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi Catalogo De Peliculas</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Mi Catálogo de Películas</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
-<header>
-    <h1>Mi Catalogo De Peliculas</h1>
-</header>
 
-<section id="formulario">
+  <header>
+    <h1> Mi Catálogo de Películas</h1>
+  </header>
+
+  <section id="formulario">
     <h2>Añadir nueva película</h2>
-
     <form id="formPeliculas">
-    <label for="titulo">Titulo:</label>
-    <input type="text" id="titulo" name="titulo"><br><br>
-    
-    <label for="director">Director:</label>
-    <input type="text" id="director" name="director"><br><br>
-    
-    <label for="anio">Año de Estreno:</label>
-    <input type="number" id="anio" name="anio"><br><br>
-    
-    <label for="genero">Género:</label>
-    <input type="text" id="genero" name="genero"><br><br>
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" required><br><br>
+      
+      <label for="director">Director:</label>
+      <input type="text" id="director" required><br><br>
+      
+      <label for="anio">Año de Estreno:</label>
+      <input type="number" id="anio" min="1900" max="2025" required><br><br>
+      
+      <label for="genero">Género:</label>
+      <input type="text" id="genero" required><br><br>
 
-    <label for="valoracion">Valoración</label>
-    <input type="number" id="valoracion" name="valoracion" min="1" max="5"><br><br>
-
-    <button type="button" id="btnAgregar">Agregar Película</button>
+      <label for="valoracion">Valoración (1-5):</label>
+      <input type="number" id="valoracion" min="1" max="5" required><br><br>
+      
+      <button type="button" id="btnAgregar">Agregar Película</button>
     </form>
-</section>
+    <div id="mensaje-validacion"></div>
+  </section>
 
-<div id="mensaje-validacion"></div>
-
-<section id="filtros">
+  <section id="filtros">
     <h2>Filtrar catálogo</h2>
     <input type="text" id="buscarTitulo" placeholder="Buscar por título...">
     <input type="text" id="filtroDirector" placeholder="Filtrar por director...">
@@ -53,15 +51,17 @@
     <button id="btnLimpiarFiltros">Limpiar filtros</button>
     <p id="contadorPeliculas">Mostrando 0 película(s)</p>
   </section>
+<<<<<<< HEAD
   
 <section id="catalogo"></section>
 <section id="contenedor-peliculas"></section>
+=======
+>>>>>>> origin/Dani
 
-<script type="module" src="formulario.js"></script>
+  <section id="catalogo"></section>
+
   <script type="module" src="peliculas.js"></script>
   <script type="module" src="filtros.js"></script>
-
+  <script type="module" src="formulario.js"></script>
 </body>
-</html>    
-
-    
+</html>
