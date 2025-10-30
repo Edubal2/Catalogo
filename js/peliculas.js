@@ -1,55 +1,59 @@
-import { actualizarCache, filtroDirector, filtroGenero } from './filtros.js';
+// peliculas.js — módulo principal para manejar el catálogo de películas
 
-// Variable global (dentro del módulo) que guarda todas las películas cargadas
-let peliculas = [];
+// Importamos funciones desde filtros.js
+import { actualizarCache, inicializarFiltros } from './filtros.js';
 
-//Funcion mostrar peliculas
+// ✅ Lista global de películas, exportada para otros módulos
+export let peliculas = [];
 
-// Si la lista está vacía, muestra un mensaje "No hay resultados".
+// Función para mostrar películas en pantalla
 export function mostrarPeliculas(lista = []) {
-// Obtenemos el elemento donde se mostrarán las tarjetas
   const contenedor = document.getElementById('contenedor-peliculas');
-//Se limpia el contenido anterior
-    contenedor.innerHTML = '';
-// Si no hay peliculas muestra mensaje y se sale
-    if (lista.length === 0) {
-        contenedor.innerHTML = '<p>No hay resultados.</p>';
-        return;
-    }
+  contenedor.innerHTML = ''; // Limpiamos contenido previo
 
-// Se recorre la lista y creamos una tarjeta para cada película
+  // Si la lista está vacía, mostramos mensaje
+  if (!lista.length) {
+    contenedor.innerHTML = '<p>No hay resultados.</p>';
+    return;
+  }
+
+  // Creamos tarjetas de películas
   lista.forEach(p => {
-    const card = document.createElement('article'); // Cada película será un <article>
-    card.className = 'tarjeta-pelicula'; // Clase CSS para estilos
+    const card = document.createElement('article');
+    card.className = 'tarjeta-pelicula';
 
-// HTML de cada tarjeta con la información de la película
+    // Repetimos estrellas según la valoración (convertimos a número)
     card.innerHTML = `
       <h3>${p.titulo}</h3>
       <p><strong>Director:</strong> ${p.director}</p>
       <p><strong>Género:</strong> ${p.genero}</p>
-      <p>${'⭐'.repeat(p.valoracion)}</p>
+      <p>${'⭐'.repeat(Number(p.valoracion))}</p>
     `;
-
-// Añadimos la tarjeta al contenedor principal
     contenedor.appendChild(card);
   });
+
+  //Actualizamos el contador de películas
+  const contador = document.getElementById('contadorPeliculas');
+  if (contador) contador.textContent = `Mostrando ${lista.length} película(s)`;
 }
 
-function iniciarApp() {
+// Función para iniciar la app
+export function iniciarApp() {
+  //Lista inicial de ejemplo
+  peliculas = [
+    { titulo: 'Inception', director: 'Christopher Nolan', genero: 'Ciencia ficción', valoracion: 5 },
+    { titulo: 'Titanic', director: 'James Cameron', genero: 'Drama', valoracion: 4 },
+    { titulo: 'It', director: 'Andy Muschietti', genero: 'Terror', valoracion: 3 },
+  ];
 
-    // Obtenemos los elementos del DOM para los filtros
-    const filtroDirectorElem = document.getElementById('filtroDirector');
-    const filtroGeneroElem = document.getElementById('filtroGenero');
+  mostrarPeliculas(peliculas); // Mostramos todas al inicio
 
-     // Cuando se escribe algo en el filtro de director se aplica el filtro de director
-  if (filtroDirectorElem)
-    filtroDirectorElem.addEventListener('input', () => filtroDirector(peliculas));
+// Inicializamos filtros
+  inicializarFiltros(peliculas);
 
-  // Cuando se cambia el género en el <select> se aplica el filtro de género
-  if (filtroGeneroElem)
-    filtroGeneroElem.addEventListener('change', () => filtroGenero(peliculas));
-
-    mostrarPeliculas(peliculas);
-    actualizarCache(peliculas);
+//Actualizamos cache interna de filtros.js
+  actualizarCache(peliculas);
 }
+
+// Ejecutamos la app automáticamente
 iniciarApp();

@@ -1,4 +1,4 @@
-import { mostrarPeliculas } from "./peliculas.js";
+import { mostrarPeliculas, peliculas } from "./peliculas.js"; // Importamos lista global
 
 const formulario = document.getElementById("formPeliculas");
 
@@ -7,24 +7,29 @@ formulario.addEventListener("submit", (event) => {
 
   const titulo = document.getElementById("titulo").value.trim();
   const director = document.getElementById("director").value.trim();
-  const año = document.getElementById("año").value.trim();
+  const anio = document.getElementById("anio").value.trim(); // Corregido id
   const genero = document.getElementById("genero").value.trim();
   const valoracion = document.getElementById("valoracion").value.trim();
 
-  if (!titulo || !director || !año || !genero || !valoracion) {
+  // Validación de campos
+  if (!titulo || !director || !anio || !genero || !valoracion) {
     document.getElementById("mensaje-validacion").textContent =
       "Por favor, completa todos los campos.";
     return;
   }
 
-  const nuevaPelicula = { titulo, director, año, genero, valoracion };
-  mostrarPeliculas(nuevaPelicula);
+  //Creamos la película y la agregamos a la lista global
+  const nuevaPelicula = { titulo, director, anio, genero, valoracion: Number(valoracion) };
+  peliculas.push(nuevaPelicula);
+
+  // Mostramos toda la lista actualizada
+  mostrarPeliculas(peliculas);
 
   formulario.reset();
   document.getElementById("mensaje-validacion").textContent = "";
 });
 
-// 🔧 Solo si el botón es type="button"
-document.getElementById("btnAgregar").addEventListener("click", () => {
+// Botón Agregar (si type=button)
+document.getElementById("btnAgregar")?.addEventListener("click", () => {
   formulario.dispatchEvent(new Event("submit"));
 });
