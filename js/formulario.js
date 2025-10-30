@@ -1,30 +1,35 @@
-import { mostrarPeliculas } from "./peliculas.js";
+<form id="formulario">
+    
+    <label for="titulo">Titulo:</label>
+    <input type="text" id="titulo" name="titulo" required/>
 
-const formulario = document.getElementById("formPeliculas");
+    <label for="director">Director:</label>
+    <input id="director" name="director" required></input>
 
-formulario.addEventListener("submit", (event) => {
-  event.preventDefault();
+    <label for="año">Año de publicación</label>
+    <input type="number" id="año" name="año" required/>
 
-  const titulo = document.getElementById("titulo").value.trim();
-  const director = document.getElementById("director").value.trim();
-  const año = document.getElementById("año").value.trim();
-  const genero = document.getElementById("genero").value.trim();
-  const valoracion = document.getElementById("valoracion").value.trim();
+    <label for="genero">Género:</label>
+    <input type="text" id="genero" name="genero" required/>
 
-  if (!titulo || !director || !año || !genero || !valoracion) {
-    document.getElementById("mensaje-validacion").textContent =
-      "Por favor, completa todos los campos.";
-    return;
-  }
+    <label for="valoracion">Valoración</label>
+    <input type="number" id="valoracion" name="valoracion" min="1" max="5" required/>
 
-  const nuevaPelicula = { titulo, director, año, genero, valoracion };
-  mostrarPeliculas(nuevaPelicula);
+    <button type="submit">Enviar</button>
 
-  formulario.reset();
-  document.getElementById("mensaje-validacion").textContent = "";
-});
 
-//Solo si el botón es type="button"
-document.getElementById("btnAgregar").addEventListener("click", () => {
-  formulario.dispatchEvent(new Event("submit"));
-});
+</form>
+
+document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const titulo = document.getElementById("titulo").value;
+    const director = document.getElementById("director").value;
+    const año = document.getElementById("año").value;
+    const genero = document.getElementById("genero").value;
+    const valoracion = document.getElementById("valoracion").value;
+})
+    console.log("Título:", titulo);
+    console.log("Director:", director);
+    console.log("Año de publicación:", año);
+    console.log("Género:", genero);
+    console.log("Valoración:", valoracion);
