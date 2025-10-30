@@ -1,7 +1,7 @@
-let peliculasLista=[];
+let peliculas=[];
 
 function mostrarPeliculas(pelicula){
-    peliculasLista.push(pelicula);
+    peliculas.push(pelicula);
    renderizarCatalogo(); 
 }
 
@@ -9,7 +9,7 @@ function renderizarCatalogo() {
     const contenedor = document.getElementById("catalogo");
     contenedor.innerHTML = "";
 
-        peliculasLista.forEach(function(pelicula) {
+        peliculas.forEach(function(pelicula) {
             const tarjeta = document.createElement("div");
             tarjeta.className = "tarjeta";
                 tarjeta.innerHTML = `
