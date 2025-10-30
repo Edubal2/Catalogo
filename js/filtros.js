@@ -1,7 +1,7 @@
 
 import { mostrarPeliculas, peliculas } from './peliculas.js';
 
-let peliculas = [...peliculas];
+let peliculas = [];
 let peliculasFiltradas = [...peliculas]; 
 
 //FILTROS VALORACION
@@ -18,7 +18,7 @@ document.getElementById('btnMejorValoradas').addEventListener('click', verMejorV
 //Conecta los filtros del DOM con el js
 export function inicializarFiltros (listaPeliculas) {
   //Se guardan las peliculas en la cache local
-  peliculas = Array.isºArray(listaPeliculas) ? listaPeliculas : [];
+  peliculas = Array.isArray(listaPeliculas) ? listaPeliculas : [];
   //Se obtienen los elementos del html para los filtros
   const filtroDirector = document.getElementById('filtroDirector');
   const filtroGenero = document.getElementById('filtroGenero');
