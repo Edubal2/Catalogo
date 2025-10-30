@@ -1,4 +1,5 @@
 let peliculasLista=[];
+
 function mostrarPeliculas(pelicula){
     peliculasLista.push(pelicula);
    renderizarCatalogo(); 
@@ -22,3 +23,4 @@ function renderizarCatalogo() {
         });
 }
 
+export { mostrarPeliculas };
