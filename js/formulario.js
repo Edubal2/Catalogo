@@ -1,31 +1,30 @@
-<form id="formulario">
-    
-    <label for="titulo">Titulo:</label>
-    <input type="text" id="titulo" name="titulo" required/>
+import { mostrarPeliculas } from "./peliculas.js";
 
-    <label for="director">Director:</label>
-    <input id="director" name="director" required></input>
+const formulario = document.getElementById("formPeliculas");
 
-    <label for="año">Año de publicación</label>
-    <input type="number" id="año" name="año" required/>
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    <label for="genero">Género:</label>
-    <input type="text" id="genero" name="genero" required/>
+  const titulo = document.getElementById("titulo").value.trim();
+  const director = document.getElementById("director").value.trim();
+  const año = document.getElementById("año").value.trim();
+  const genero = document.getElementById("genero").value.trim();
+  const valoracion = document.getElementById("valoracion").value.trim();
 
-    <label for="valoracion">Valoración</label>
-    <input type="number" id="valoracion" name="valoracion" min="1" max="5" required/>
+  if (!titulo || !director || !año || !genero || !valoracion) {
+    document.getElementById("mensaje-validacion").textContent =
+      "Por favor, completa todos los campos.";
+    return;
+  }
 
-    <button type="submit">Enviar</button>
+  const nuevaPelicula = { titulo, director, año, genero, valoracion };
+  mostrarPeliculas(nuevaPelicula);
 
+  formulario.reset();
+  document.getElementById("mensaje-validacion").textContent = "";
+});
 
-</form>
-
-document.getElementById("formulario").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const titulo = document.getElementById("titulo").value;
-    const director = document.getElementById("director").value;
-    const año = document.getElementById("año").value;
-    const genero = document.getElementById("genero").value;
-    const valoracion = document.getElementById("valoracion").value;
-})
-
+// 🔧 Solo si el botón es type="button"
+document.getElementById("btnAgregar").addEventListener("click", () => {
+  formulario.dispatchEvent(new Event("submit"));
+});
