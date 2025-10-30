@@ -1,7 +1,7 @@
 import { actualizarCache, filtroDirector, filtroGenero } from './filtros.js';
 
 // Variable global (dentro del módulo) que guarda todas las películas cargadas
-let peliculasLista = [];
+let peliculas = [];
 
 //Funcion mostrar peliculas
 
