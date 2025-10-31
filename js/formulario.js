@@ -17,7 +17,7 @@ formulario.addEventListener("submit", (event) => {
     return;
   }
 
-  const nuevaPelicula = { titulo, director, año, genero, valoracion };
+  const nuevaPelicula = { titulo, director, año, genero, valoracion: Number(valoracion) };
   mostrarPeliculas(nuevaPelicula);
 
   formulario.reset();

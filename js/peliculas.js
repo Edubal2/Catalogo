@@ -1,6 +1,6 @@
-let peliculasLista=[];
+export let peliculasLista=[];
 
-function mostrarPeliculas(pelicula){
+ function mostrarPeliculas(pelicula){
     peliculasLista.push(pelicula);
    renderizarCatalogo(); 
 }
