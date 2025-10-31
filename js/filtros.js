@@ -1,6 +1,6 @@
-import { mostrarPeliculas, peliculas } from './peliculas.js';
+import { mostrarPeliculas, peliculasLista } from './peliculas.js';
 
-let peliculasFiltradas = [...peliculas]; 
+let peliculasFiltradas = [...peliculasLista]; 
 
 // Función que ordena por valoracion descendente
 export function verMejorValoradas() {
