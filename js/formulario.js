@@ -26,5 +26,5 @@ formulario.addEventListener("submit", (event) => {
 
 // 🔧 Solo si el botón es type="button"
 document.getElementById("btnAgregar").addEventListener("click", () => {
-  formulario.requestSubmit();
+  formulario.dispatchEvent(new Event("submit"));
 });
