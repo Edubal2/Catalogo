@@ -1,4 +1,4 @@
-let peliculasLista=[];
+export let peliculasLista=[];
 
 function mostrarPeliculas(pelicula){
     peliculasLista.push(pelicula);
