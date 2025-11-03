@@ -28,6 +28,10 @@ function editarPelicula(index) {
     document.getElementById('formulario').scrollIntoView({ behavior: 'smooth' });
 }
 
+function getStarsRating(rating) {
+    return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+}
+
 function renderizarCatalogo() {
     const contenedor = document.getElementById("catalogo");
     contenedor.innerHTML = "";
@@ -40,7 +44,7 @@ function renderizarCatalogo() {
             <p><strong>Director:</strong> ${pelicula.director}</p>
             <p><strong>Año:</strong> ${pelicula.año}</p>
             <p><strong>Género:</strong> ${pelicula.genero}</p>
-            <p><strong>Valoración:</strong> ${pelicula.valoracion}</p>
+            <p><strong>Valoración:</strong> <span class="rating">${getStarsRating(pelicula.valoracion)}</span></p>
             <div class="botones-tarjeta">
                 <button class="btn-editar" onclick="window.editarPelicula(${index})">Editar</button>
                 <button class="btn-eliminar" onclick="window.eliminarPelicula(${index})">Eliminar</button>

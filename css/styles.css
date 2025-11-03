@@ -120,8 +120,7 @@
     width: 100px;
 }
 
-#btnAgregar {
-    background-color: #3498db;
+#btnAgregar, #btnCancelar {
     color: white;
     padding: 12px 24px;
     border: none;
@@ -129,13 +128,26 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 1em;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    flex: 1;
     width: 100%;
-    margin-top: 10px;
+    text-align: center;
+}
+
+#btnAgregar {
+    background-color: #3498db;
+}
+
+#btnCancelar {
+    background-color: #95a5a6;
 }
 
 #btnAgregar:hover {
     background-color: #2980b9;
+}
+
+#btnCancelar:hover {
+    background-color: #7f8c8d;
 }
 
 #mensaje-validacion {
@@ -195,39 +207,6 @@ header h1 {
     margin-bottom: 20px;
 }
 
-#btnAgregar {
-    background-color: #3498db;
-    flex: 1;
-}
-
-#btnCancelar {
-    background-color: #95a5a6;
-    flex: 1;
-}
-
-#btnAgregar, #btnCancelar {
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-    transition: all 0.3s ease;
-}
-
-#btnAgregar:hover {
-    background-color: #2980b9;
-}
-
-#btnCancelar:hover {
-    background-color: #7f8c8d;
-}
-
-.hidden {
-    display: none !important;
-}
-
 /* Estilos para modo edición */
 #formPeliculas.editing #btnAgregar {
     background-color: #27ae60;
@@ -237,4 +216,12 @@ header h1 {
     background-color: #219a52;
 }
 
+.hidden {
+    display: none !important;
+}
 
+.rating {
+    color: #f1c40f;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+}
