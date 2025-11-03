@@ -12,9 +12,13 @@
 </header>
 
 <section id="formulario">
-    <h2>Añadir nueva película</h2>
+    <h2 id="formTitle">Añadir nueva película</h2>
 
     <form id="formPeliculas">
+    <div class="form-buttons">
+        <button type="button" id="btnAgregar">Agregar Película</button>
+        <button type="button" id="btnCancelar" class="hidden">Cancelar</button>
+    </div>
     <label for="titulo">Titulo:</label>
     <input type="text" id="titulo" name="titulo"><br><br>
     
@@ -40,7 +44,6 @@
     <label for="valoracion">Valoración</label>
     <input type="number" id="valoracion" name="valoracion" min="1" max="5"><br><br>
 
-    <button type="button" id="btnAgregar">Agregar Película</button>
 
     </form>
 </section>
