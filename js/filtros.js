@@ -1,44 +1,77 @@
-/*
-Filtros por género y director siendo el filtro de generos mediante un desplegable que ya existe y el de director mediante un campo de texto.
-*/
-import { peliculasLista, renderizarCatalogo } from './peliculas.js';
+// filtros.js
 
-export function filtrarPeliculas() {
-    const generoFiltro = document.getElementById('filtro-genero').value.toLowerCase();
-    const directorFiltro = document.getElementById('filtro-director').value.toLowerCase();
+// Importa la lista de películas y la función para mostrarlas
+import { peliculasLista, renderizarCatalogo } from './peliculas.js'; 
 
-    const peliculasFiltradas = peliculasLista.filter(pelicula => {
-        const coincideGenero = generoFiltro === 'todos' || pelicula.genero.toLowerCase() === generoFiltro;
-        const coincideDirector = pelicula.director.toLowerCase().includes(directorFiltro);
-        return coincideGenero && coincideDirector;
+const buscarTituloInput = document.getElementById('buscarTitulo');
+const filtroDirectorInput = document.getElementById('filtroDirector');
+const filtroGeneroSelect = document.getElementById('filtroGenero');
+
+/**
+ * Función central que aplica los filtros por Título, Director y Género, 
+ * solo si los campos tienen valor.
+ */
+function filtrarCatalogo() {
+    // 1. Obtener y normalizar valores de los filtros
+    const tituloBuscado = buscarTituloInput.value.toLowerCase().trim();
+    const directorFiltrado = filtroDirectorInput.value.toLowerCase().trim();
+    const generoFiltrado = filtroGeneroSelect.value; 
+
+    // 2. Aplicar el filtro a la lista de películas
+    let listaFiltrada = peliculasLista.filter(pelicula => {
+        
+        // Criterio A: Título. Si el campo está vacío, la condición es TRUE (siempre pasa).
+        const cumpleTitulo = tituloBuscado === '' || pelicula.titulo.toLowerCase().includes(tituloBuscado);
+        
+        // Criterio B: Director. Si el campo está vacío, la condición es TRUE (siempre pasa).
+        const cumpleDirector = directorFiltrado === '' || pelicula.director.toLowerCase().includes(directorFiltrado);
+        
+        // Criterio C: Género. Si el select es "Todos los géneros" (""), la condición es TRUE (siempre pasa).
+        const cumpleGenero = generoFiltrado === '' || pelicula.genero === generoFiltrado;
+        
+        // La película se incluye si cumple todos los criterios ACTIVOS.
+        // Si el usuario solo escribió el director, solo se aplica el Criterio B (A y C pasan automáticamente).
+        return cumpleTitulo && cumpleDirector && cumpleGenero;
     });
 
-    renderizarCatalogoFiltrado(peliculasFiltradas);
+    // 3. Renderizar la lista resultante
+    renderizarCatalogo(listaFiltrada);
 }
 
-function renderizarCatalogoFiltrado(peliculas) {
-    const contenedor = document.getElementById("catalogo");
-    contenedor.innerHTML = "";
 
-    peliculas.forEach((pelicula, index) => {
-        const tarjeta = document.createElement("div");
-        tarjeta.className = "tarjeta";
-        tarjeta.innerHTML   = `
-            <h3>${pelicula.titulo}</h3>
-            <p><strong>Director:</strong> ${pelicula.director}</p>
-            <p><strong>Año:</strong> ${pelicula.año}</p>
-            <p><strong>Género:</strong> ${pelicula.genero}</p>
-            <p><strong>Valoración:</strong> ${pelicula.valoracion}</p>
-        `;
-        contenedor.appendChild(tarjeta);
+// Listener: Ejecuta la función de filtrado cada vez que cambian los inputs
+buscarTituloInput.addEventListener('input', filtrarCatalogo);
+filtroDirectorInput.addEventListener('input', filtrarCatalogo);
+filtroGeneroSelect.addEventListener('change', filtrarCatalogo);
+
+// --- La lógica para 'verMejorValoradas' y 'limpiarFiltros' debe usar la función 'filtrarCatalogo' como base ---
+
+function verMejorValoradas() {
+    // Primero, obtenemos la lista aplicando los filtros actuales
+    const listaParaOrdenar = peliculasLista.filter(pelicula => {
+        const tituloBuscado = buscarTituloInput.value.toLowerCase().trim();
+        const directorFiltrado = filtroDirectorInput.value.toLowerCase().trim();
+        const generoFiltrado = filtroGeneroSelect.value;
+        
+        const cumpleTitulo = tituloBuscado === '' || pelicula.titulo.toLowerCase().includes(tituloBuscado);
+        const cumpleDirector = directorFiltrado === '' || pelicula.director.toLowerCase().includes(directorFiltrado);
+        const cumpleGenero = generoFiltrado === '' || pelicula.genero === generoFiltrado;
+        
+        return cumpleTitulo && cumpleDirector && cumpleGenero;
     });
+    
+    // Luego ordenamos y renderizamos
+    const ordenadas = listaParaOrdenar.sort((a, b) => b.valoracion - a.valoracion);
+    renderizarCatalogo(ordenadas);
 }
 
-// Agregar event listeners a los filtros
-document.getElementById('filtro-genero').addEventListener('change', filtrarPeliculas);
-document.getElementById('filtro-director').addEventListener('input', filtrarPeliculas);
+document.getElementById('btnMejorValoradas').addEventListener('click', verMejorValoradas);
 
-// Renderizar el catálogo completo al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    renderizarCatalogo();
-}); 
+function limpiarFiltros() {
+    buscarTituloInput.value = "";
+    filtroDirectorInput.value = "";
+    filtroGeneroSelect.value = ""; 
+    filtrarCatalogo(); // Vuelve a renderizar la lista completa
+}
+
+document.getElementById('btnLimpiarFiltros').addEventListener('click', limpiarFiltros);
