@@ -1,0 +1,240 @@
+#catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.tarjeta {
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: white;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 220px;
+    position: relative;
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.tarjeta p {
+    margin: 3px 0;
+}
+
+.botones-tarjeta {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 8px;
+}
+
+.btn-editar, .btn-eliminar {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    flex: 1;
+}
+
+.btn-editar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #45a049;
+}
+
+.btn-eliminar {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #da190b;
+}
+
+.tarjeta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Estilos del formulario */
+#formulario {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+#formulario h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+#formPeliculas {
+    display: grid;
+    gap: 15px;
+}
+
+#formPeliculas label {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#formPeliculas input,
+#formPeliculas select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+#formPeliculas input:focus,
+#formPeliculas select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+#formPeliculas input[type="number"] {
+    width: 100px;
+}
+
+#btnAgregar {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#btnAgregar:hover {
+    background-color: #2980b9;
+}
+
+#mensaje-validacion {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#mensaje-validacion.error {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+#mensaje-validacion.success {
+    background-color: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+/* Estilos para el header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+/* Estilos para la sección de filtros */
+#filtros {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#filtros h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#btnAgregar {
+    background-color: #3498db;
+    flex: 1;
+}
+
+#btnCancelar {
+    background-color: #95a5a6;
+    flex: 1;
+}
+
+#btnAgregar, #btnCancelar {
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+#btnAgregar:hover {
+    background-color: #2980b9;
+}
+
+#btnCancelar:hover {
+    background-color: #7f8c8d;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Estilos para modo edición */
+#formPeliculas.editing #btnAgregar {
+    background-color: #27ae60;
+}
+
+#formPeliculas.editing #btnAgregar:hover {
+    background-color: #219a52;
+}
+
+
