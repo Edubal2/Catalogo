@@ -75,13 +75,9 @@ function limpiarFiltros() {
 
 // --- LISTENERS PARA ACTIVACIÓN EN TIEMPO REAL ---
 
-// El evento 'input' se dispara inmediatamente al escribir o borrar.
-buscarTituloInput.addEventListener('input', filtrarCatalogo);
-filtroDirectorInput.addEventListener('input', filtrarCatalogo);
-
-// El evento 'change' se dispara cuando el valor de un select cambia.
-filtroGeneroSelect.addEventListener('change', filtrarCatalogo);
-
-// Listener para los botones
-btnMejorValoradas.addEventListener('click', verMejorValoradas);
-btnLimpiarFiltros.addEventListener('click', limpiarFiltros);
+// Verifica que los elementos no sean null antes de añadir el listener
+if (buscarTituloInput) buscarTituloInput.addEventListener('input', filtrarCatalogo);
+if (filtroDirectorInput) filtroDirectorInput.addEventListener('input', filtrarCatalogo);
+if (filtroGeneroSelect) filtroGeneroSelect.addEventListener('change', filtrarCatalogo);
+if (btnMejorValoradas) btnMejorValoradas.addEventListener('click', verMejorValoradas);
+if (btnLimpiarFiltros) btnLimpiarFiltros.addEventListener('click', limpiarFiltros);
