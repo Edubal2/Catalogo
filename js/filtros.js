@@ -10,7 +10,7 @@ const contador = document.getElementById('contadorPeliculas');
 const btnLimpiar = document.getElementById('btnLimpiarFiltros');
 const btnMejorValoradas = document.getElementById('btnMejorValoradas');
 
-// --- Función principal de filtrado ---
+// Función principal de filtrado
 function aplicarFiltros() {
   const tituloFiltro = inputTitulo.value.toLowerCase();
   const directorFiltro = inputDirector.value.toLowerCase();
@@ -26,7 +26,7 @@ function aplicarFiltros() {
   renderizarPeliculasFiltradas();
 }
 
-// --- Renderizar las películas filtradas ---
+// Renderizar las películas filtradas 
 function renderizarPeliculasFiltradas() {
   const contenedor = document.getElementById('catalogo');
   contenedor.innerHTML = '';
@@ -51,13 +51,13 @@ function renderizarPeliculasFiltradas() {
   contador.textContent = `Mostrando ${peliculasFiltradas.length} película(s)`;
 }
 
-// --- Botón "Ver mejor valoradas" ---
+// Botón "Ver mejor valoradas" 
 btnMejorValoradas.addEventListener('click', () => {
   peliculasFiltradas = [...peliculasFiltradas].sort((a, b) => b.valoracion - a.valoracion);
   renderizarPeliculasFiltradas();
 });
 
-// --- Botón "Limpiar filtros" ---
+// Botón "Limpiar filtros"
 btnLimpiar.addEventListener('click', () => {
   inputTitulo.value = '';
   inputDirector.value = '';
@@ -66,12 +66,12 @@ btnLimpiar.addEventListener('click', () => {
   renderizarPeliculasFiltradas();
 });
 
-// --- Listeners ---
+//  Listeners 
 inputTitulo.addEventListener('input', aplicarFiltros);
 inputDirector.addEventListener('input', aplicarFiltros);
 selectGenero.addEventListener('change', aplicarFiltros);
 
-// --- Inicializar ---
+// Inicializar
 document.addEventListener('DOMContentLoaded', () => {
   peliculasFiltradas = [...peliculasLista];
   renderizarPeliculasFiltradas();
