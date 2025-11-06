@@ -15,10 +15,7 @@
     <h2 id="formTitle">Añadir nueva película</h2>
 
     <form id="formPeliculas">
-    <div class="form-buttons">
-        <button type="button" id="btnAgregar">Agregar Película</button>
-        <button type="button" id="btnCancelar" class="hidden">Cancelar</button>
-    </div>
+
     <label for="titulo">Titulo:</label>
     <input type="text" id="titulo" name="titulo"><br><br>
     
@@ -27,10 +24,7 @@
     
     <label for="año">Año de Estreno:</label>
     <input type="number" id="año" name="año"><br><br>
-    
-    <!--<label for="genero">Género:</label>
-    <input type="text" id="genero" name="genero"><br><br>
-    -->
+
     <label for="genero">Género:</label>
     <select id="genero" name="genero">
       <option value="">---</option>
@@ -43,6 +37,11 @@
 
     <label for="valoracion">Valoración</label>
     <input type="number" id="valoracion" name="valoracion" min="1" max="5"><br><br>
+
+        <div class="form-buttons">
+            <button type="button" id="btnAgregar">Agregar Película</button>
+            <button type="button" id="btnCancelar" class="hidden">Cancelar</button>
+        </div>
 
 
     </form>

@@ -1,116 +1,45 @@
-# 🎬 Proyecto: Catálogo de Películas y Series — Reparto para 3 Personas
+# Proyecto: Catalog de Películas y Series
 
-## 👥 Reparto de tareas
+## Descripción del proyecto
 
-| Persona | Rol principal | Módulos | Archivos clave |
-|----------|----------------|----------|----------------|
-| 🧩 **Persona 1: Estructura y formulario** | Front-end base y alta de películas/series | HTML + formulario + renderizado de tarjetas + integración básica con JS | `index.html`, `formulario.js`, `peliculas.js` |
-| 🔍 **Persona 2: Filtros, búsqueda y ordenación** | Lógica de filtrado, búsqueda y ordenación de valoraciones | JS de búsqueda, filtros por género/director, botón de “mejor valoradas”, contador | `filtros.js`, `peliculas.js` |
-| 💾 **Persona 3: Estilos, edición, eliminación y almacenamiento** | Estilos CSS + edición/eliminación + persistencia localStorage + documentación | `styles.css`, `storage.js`, `README.md` |
+Un catálogo simple y responsivo para añadir, editar, eliminar y filtrar películas y series. Los elementos se muestran como tarjetas con valoraciones por estrellas, búsqueda en tiempo real, filtros por género/director y persistencia local.
 
----
+## Miembros de equipos y roles
 
-## 🧩 Persona 1: Estructura y Formulario                        (JESUS)
+- Jesus — Estructura, formulario y renderizado de tarjetas (index.html, js/formulario.js, js/peliculas.js)
+- Daniel — Filtros, búsqueda y ordenación (js/filtros.js, js/peliculas.js)
+- Eduard — Estilos, edición/eliminación y localStorage (css/styles.css, js/storage.js, README.md)
 
-### 🔧 Funcionalidades
-- Crear la estructura HTML semántica de la app.
-- Crear el formulario para añadir películas/series.
-- Mostrar las películas/series en tarjetas.
-- Validar que todos los campos estén completos antes de añadir.
-- Mostrar las estrellas según la valoración.
+## Tecnologías utilizadas
 
-### 🧾 Issues (8)
-1. Crear estructura base en `index.html`
-2. Crear formulario con campos: título, director, año, género y valoración (estrellas)
-3. Implementar evento "Añadir al catálogo" en `formulario.js`
-4. Validar datos del formulario
-5. Crear función `mostrarPeliculas()` en `peliculas.js`
-6. Generar tarjetas visuales con los datos
-7. Mostrar estrellas según valoración (⭐)
-8. Actualizar vista al añadir nueva película
+- HTML5
+- CSS3
+- JavaScript (ES6)
 
-### 🌿 Rama de trabajo
-`feature/formulario-visualizacion`
+## Como usar la aplicación
 
----
+1. Rellenar el formulario con los datos de la pelicula/serie y hacer clic en "Añadir".
+2. Usar la barra de búsqueda para encontrar títulos en tiempo real.
+3. Seleccionar un género del menú desplegable para filtrar.
+4. Introducir el nombre del director para filtrar por director.
+5. Hacer clic en "Mejor valoradas" para ordenar por valoración.
+6. Hacer clic en "Limpiar filtros" para restablecer la vista.
+7. Editar o eliminar elementos usando los botones en cada tarjeta.
 
-## 🔍 Persona 2: Filtros, Búsqueda y Ordenación                        (DANI)
+## Funcionalidades implementadas
 
-### 🔧 Funcionalidades
-- Implementar la búsqueda en tiempo real por título.
-- Filtro por género mediante `<select>`.
-- Filtro por director mediante `<input>`.
-- Botón “Ver mejor valoradas”.
-- Mostrar contador de elementos del catálogo.
-- Botón “Limpiar filtros”.
+- ✅ Añadir nueva película/serie mediante formulario (con validación)
+- ✅ Renderizar elementos como tarjetas con valoración por estrellas
+- ✅ Editar y eliminar elementos (la eliminación pide confirmación)
+- ✅ Persistir el catálogo en localStorage (guardado/carga automática)
+- ✅ Búsqueda en tiempo real por título
+- ✅ Filtrar por género (menú desplegable)
+- ✅ Filtrar por director (campo de texto)
+- ✅ Ordenar / ver mejor valoradas
+- ✅ Contador visible de elementos
+- ✅ Botón para limpiar filtros
+- ✅ Estilos responsivos y retroalimentación visual
 
-### 🧾 Issues (7)
-1. Implementar búsqueda en tiempo real (`filtros.js`)
-2. Crear filtro por género (dropdown)
-3. Crear filtro por director
-4. Añadir botón “Ver mejor valoradas” (ordenar descendente por valoración)
-5. Implementar contador total de películas visibles
-6. Botón para limpiar filtros
-7. Integrar todos los filtros con `mostrarPeliculas()`
+### [GitHub Pages](https://Edubal2.github.io/Catalogo)
 
-### 🌿 Rama de trabajo
-`feature/filtros-busqueda-orden`
 
----
-
-## 💾 Persona 3: CSS, Edición, Eliminación y LocalStorage                        (EDU)
-
-### 🔧 Funcionalidades
-- Crear estilos CSS modernos y responsive (móvil, tablet, escritorio).
-- Implementar botones de “Editar” y “Eliminar” en cada tarjeta.
-- Implementar persistencia con localStorage (guardar, cargar).
-- Crear documentación `README.md` del proyecto.
-
-### 🧾 Issues (9)
-1. Crear estilos base (`styles.css`)
-2. Diseñar tarjetas con flexbox o grid
-3. Hacer la interfaz responsive
-4. Añadir efectos visuales (hover, clicks, feedback)
-5. Implementar botón “Eliminar” con confirmación
-6. Implementar edición de película (reutilizando formulario)
-7. Guardar catálogo automáticamente en `localStorage` (`storage.js`)
-8. Cargar catálogo automáticamente al iniciar
-9. Redactar y dar formato al `README.md`
-
-### 🌿 Rama de trabajo
-`feature/css-storage-edicion`
-
----
-
-## 🔁 Flujo de trabajo en GitHub
-
-1. **Cada persona** crea su rama desde `main`:
-   ```bash
-   git checkout main
-   git pull
-   git checkout -b feature/formulario-visualizacion
-
-2. 🧠 Desarrollo individual con commits frecuentes y mensajes claros
-
-- ✅ **Añadir validación al formulario de películas**  
-- ✅ **Implementar filtro por género y director**  
-- ✅ **Guardar catálogo en localStorage automáticamente**
-
-3. Crear **Pull Requests (PR)** cuando se termine una funcionalidad.  
-4. Otro compañero debe **revisar el PR antes de hacer merge**.  
-5. Marcar el **Issue correspondiente como cerrado** al fusionar.
-
----
-
-## 📋 Project board (Kanban)
-
-En **GitHub → Projects**, se recomienda organizar las tareas en un tablero con las siguientes columnas:
-
-- 🕐 **Por hacer**  
-- 🚧 **En progreso**  
-- 👀 **En revisión**  
-- ✅ **Hecho**
-
-   
-
-   
