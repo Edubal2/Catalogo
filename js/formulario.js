@@ -58,7 +58,7 @@ formulario.addEventListener("submit", (event) => {
   resetForm();
 });
 
-// 🔧 Solo si el botón es type="button"
+//  Solo si el botón es type="button"
 document.getElementById("btnAgregar").addEventListener("click", () => {
   formulario.requestSubmit();
 });
