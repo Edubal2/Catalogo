@@ -233,3 +233,14 @@ header h1 {
     font-size: 1.2em;
     letter-spacing: 2px;
 }
+footer {
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: scale(1.1);
+}
